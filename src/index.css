@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-navy: #0A192F;
+  --color-brand-navy-dark: #071120;
+  --color-brand-navy-light: #172A45;
+  --color-brand-navy-accent: #1E2D4A;
+
+  --color-brand-royal: #1E40AF;
+  --color-brand-royal-light: #3B82F6;
+  --color-brand-royal-dark: #1D4ED8;
+
+  --color-brand-gold: #D4AF37;
+  --color-brand-gold-light: #F4E0A5;
+  --color-brand-gold-dark: #B8860B;
+  --color-brand-gold-soft: #FAF3E0;
+
+  --color-brand-gray: #F8FAFC;
+  --color-brand-gray-dark: #E2E8F0;
+  --color-brand-gray-text: #1E293B;
+  --color-brand-gray-textlight: #64748B;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Poppins', sans-serif;
+
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-float-medium: float 6s ease-in-out infinite;
+  --animate-float-fast: float 4s ease-in-out infinite;
+  --animate-pulse-subtle: pulseSubtle 4s ease-in-out infinite;
+  --animate-sweep-gold: sweepGold 3s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes pulseSubtle {
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.03); }
+  }
+  @keyframes sweepGold {
+    0% { left: -100%; }
+    50%, 100% { left: 100%; }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-brand-gray text-brand-gray-text font-sans antialiased;
+  }
+}
+
+/* Custom Glassmorphism styles */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glassmorphism-dark {
+  background: rgba(10, 25, 47, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A0AEC0;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

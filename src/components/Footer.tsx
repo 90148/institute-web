@@ -8,21 +8,8 @@ export default function Footer() {
     });
   };
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetElement = document.querySelector(href);
-    if (targetElement) {
-      const navbarHeight = 80;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
-    <footer className="bg-[#071120] text-white pt-16 pb-8 relative overflow-hidden z-20 border-t border-white/5">
+    <footer className="bg-[#071120] text-white pt-16 pb-8 relative overflow-hidden z-20 border-t border-white/5 font-sans">
       {/* Animated Top Gold Line */}
       <div className="absolute top-0 left-0 right-0 h-[1.5px] bg-white/10 overflow-hidden">
         <div className="absolute top-0 bottom-0 w-1/3 bg-gradient-to-r from-transparent via-brand-gold to-transparent animate-sweep-gold" />
@@ -30,11 +17,11 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-12">
         
-        {/* Column 1: Info (4 cols) */}
+        {/* Column 1: Info */}
         <div className="lg:col-span-4 flex flex-col items-start text-left gap-4">
           <div className="flex items-center gap-3">
             <img
-              src="/logo1.jpeg"
+              src="/logo.jpg"
               alt="Scholars Bridge Logo"
               className="h-9 w-auto object-contain rounded-md"
             />
@@ -71,75 +58,75 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Column 2: Quick Links (2 cols) */}
+        {/* Column 2: Quick Links */}
         <div className="lg:col-span-2 flex flex-col items-start text-left gap-4">
           <h4 className="font-display font-semibold text-sm text-brand-gold uppercase tracking-wider">
             Quick Links
           </h4>
           <ul className="flex flex-col gap-2.5 text-xs sm:text-sm text-gray-400">
             <li>
-              <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="hover:text-brand-gold transition-colors">
+              <a href="#/" className="hover:text-brand-gold transition-colors">
                 Home
               </a>
             </li>
             <li>
-              <a href="#about" onClick={(e) => handleNavClick(e, '#about')} className="hover:text-brand-gold transition-colors">
+              <a href="#/about" className="hover:text-brand-gold transition-colors">
                 About Us
               </a>
             </li>
             <li>
-              <a href="#services" onClick={(e) => handleNavClick(e, '#services')} className="hover:text-brand-gold transition-colors">
+              <a href="#/services" className="hover:text-brand-gold transition-colors">
                 Services
               </a>
             </li>
             <li>
-              <a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="hover:text-brand-gold transition-colors">
+              <a href="#/programs" className="hover:text-brand-gold transition-colors">
                 Programs
               </a>
             </li>
             <li>
-              <a href="#why-us" onClick={(e) => handleNavClick(e, '#why-us')} className="hover:text-brand-gold transition-colors">
+              <a href="#/why-us" className="hover:text-brand-gold transition-colors">
                 Why Choose Us
               </a>
             </li>
           </ul>
         </div>
 
-        {/* Column 3: Programs (3 cols) */}
+        {/* Column 3: Learning Paths */}
         <div className="lg:col-span-3 flex flex-col items-start text-left gap-4">
           <h4 className="font-display font-semibold text-sm text-brand-gold uppercase tracking-wider">
             Learning Paths
           </h4>
           <ul className="flex flex-col gap-2.5 text-xs sm:text-sm text-gray-400">
             <li>
-              <a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="hover:text-brand-gold transition-colors">
+              <a href="#/programs" className="hover:text-brand-gold transition-colors">
                 Programming Foundations
               </a>
             </li>
             <li>
-              <a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="hover:text-brand-gold transition-colors">
+              <a href="#/programs" className="hover:text-brand-gold transition-colors">
                 Data Analytics
               </a>
             </li>
             <li>
-              <a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="hover:text-brand-gold transition-colors">
+              <a href="#/programs" className="hover:text-brand-gold transition-colors">
                 Artificial Intelligence
               </a>
             </li>
             <li>
-              <a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="hover:text-brand-gold transition-colors">
+              <a href="#/programs" className="hover:text-brand-gold transition-colors">
                 Web Development
               </a>
             </li>
             <li>
-              <a href="#programs" onClick={(e) => handleNavClick(e, '#programs')} className="hover:text-brand-gold transition-colors">
+              <a href="#/programs" className="hover:text-brand-gold transition-colors">
                 Cloud & DevOps
               </a>
             </li>
           </ul>
         </div>
 
-        {/* Column 4: Contact Info (3 cols) */}
+        {/* Column 4: Contact */}
         <div className="lg:col-span-3 flex flex-col items-start text-left gap-4">
           <h4 className="font-display font-semibold text-sm text-brand-gold uppercase tracking-wider">
             Contact
@@ -172,7 +159,7 @@ export default function Footer() {
           © 2026 Scholars Bridge. All Rights Reserved.
         </span>
 
-        {/* Scroll-to-top button */}
+        {/* Scroll-to-top */}
         <button
           onClick={handleScrollToTop}
           className="p-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-brand-gold hover:text-brand-navy-dark shadow transition-all duration-300 group"

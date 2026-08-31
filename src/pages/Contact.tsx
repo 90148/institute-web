@@ -49,7 +49,6 @@ export default function Contact() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error on change
     if (errors[name as keyof FormState]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
@@ -61,7 +60,6 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate API Submission
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
@@ -72,32 +70,33 @@ export default function Contact() {
         program: '',
         message: '',
       });
-      // Auto close success alert after 5 seconds
       setTimeout(() => setSubmitSuccess(false), 5000);
-    }, 1800);
+    }, 1500);
   };
 
   return (
-    <section id="contact" className="py-20 bg-white relative z-20">
-      <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+    <div className="pt-24 pb-16 bg-white min-h-screen">
+      
+      {/* Header */}
+      <section className="py-12 bg-brand-gray/30 border-b border-brand-gray-dark mb-16">
+        <div className="max-w-7xl mx-auto px-6 text-center lg:text-left">
           <span className="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-2 block">
-            Get In Touch
+            Connect With Us
           </span>
-          <h2 className="font-display font-bold text-3xl sm:text-4xl text-brand-navy tracking-tight">
+          <h1 className="font-display font-bold text-3xl sm:text-4xl text-brand-navy tracking-tight mb-4">
             Let’s Build Your Future Together
-          </h2>
-          <p className="text-brand-gray-textlight mt-4 text-sm sm:text-base">
+          </h1>
+          <p className="text-brand-gray-textlight text-base max-w-2xl">
             Have questions about our programs, course structures, or career services? Drop us an enquiry and our team will get back to you within 24 hours.
           </p>
         </div>
+      </section>
 
-        {/* Outer Grid */}
+      {/* Main Grid */}
+      <section className="max-w-7xl mx-auto px-6 mb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
           
-          {/* Left Column: Contact info */}
+          {/* Left: Contact Info */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-10">
             <div className="flex flex-col gap-8 text-left">
               <h3 className="font-display font-bold text-2xl text-brand-navy">
@@ -107,7 +106,6 @@ export default function Contact() {
                 Feel free to visit our campus offices or connect directly via phone or email during operational business hours.
               </p>
 
-              {/* Physical details list */}
               <div className="flex flex-col gap-6 mt-4">
                 
                 <div className="flex items-start gap-4">
@@ -155,7 +153,7 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Social media icons links */}
+            {/* Social Links */}
             <div className="flex flex-col gap-4 text-left">
               <span className="text-xs font-semibold text-brand-gray-textlight uppercase tracking-wider">
                 Follow our journey
@@ -200,11 +198,9 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Right Column: Contact form card */}
+          {/* Right: Enquiry Form */}
           <div className="lg:col-span-7">
             <div className="bg-brand-gray/40 border border-brand-gray-dark rounded-3xl p-6 sm:p-10 shadow-lg relative overflow-hidden">
-              
-              {/* Form Success/Status Alerts */}
               <AnimatePresence>
                 {submitSuccess && (
                   <motion.div
@@ -231,7 +227,6 @@ export default function Contact() {
               </AnimatePresence>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-5 text-left">
-                {/* Name field */}
                 <div className="flex flex-col">
                   <label htmlFor="name" className="text-xs font-semibold text-brand-navy mb-2">
                     Full Name
@@ -254,7 +249,6 @@ export default function Contact() {
                   )}
                 </div>
 
-                {/* Email and Phone Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div className="flex flex-col">
                     <label htmlFor="email" className="text-xs font-semibold text-brand-navy mb-2">
@@ -301,7 +295,6 @@ export default function Contact() {
                   </div>
                 </div>
 
-                {/* Program Selector */}
                 <div className="flex flex-col">
                   <label htmlFor="program" className="text-xs font-semibold text-brand-navy mb-2">
                     Select Program Track
@@ -331,7 +324,6 @@ export default function Contact() {
                   )}
                 </div>
 
-                {/* Message field */}
                 <div className="flex flex-col">
                   <label htmlFor="message" className="text-xs font-semibold text-brand-navy mb-2">
                     Your Message
@@ -354,13 +346,12 @@ export default function Contact() {
                   )}
                 </div>
 
-                {/* Submit button */}
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full mt-2 py-4 bg-brand-navy hover:bg-brand-gold text-white font-bold text-sm tracking-wide rounded-xl shadow-lg flex items-center justify-center gap-2 transition-colors disabled:opacity-85"
+                  className="w-full mt-2 py-4 bg-brand-navy hover:bg-brand-navy-light text-white font-bold text-sm tracking-wide rounded-xl shadow-lg flex items-center justify-center gap-2 transition-colors disabled:opacity-85"
                 >
                   {isSubmitting ? (
                     <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -371,15 +362,13 @@ export default function Contact() {
                     </>
                   )}
                 </motion.button>
-
               </form>
-
             </div>
           </div>
 
         </div>
+      </section>
 
-      </div>
-    </section>
+    </div>
   );
 }

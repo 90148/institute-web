@@ -1,20 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageSquareCode } from 'lucide-react';
 
 export default function CTA() {
-  const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetElement = document.querySelector(href);
-    if (targetElement) {
-      const navbarHeight = 80;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
 
   return (
     <section className="py-24 bg-[#071120] text-white relative overflow-hidden z-20">
@@ -56,8 +43,7 @@ export default function CTA() {
           {/* Buttons Stack */}
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <motion.a
-              href="#programs"
-              onClick={(e) => handleScrollClick(e, '#programs')}
+              href="#/programs"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               className="relative overflow-hidden px-8 py-4 rounded-full bg-brand-gold text-brand-navy-dark font-bold text-sm tracking-wide flex items-center justify-center gap-2 group shadow-lg shadow-brand-gold/20"
@@ -69,8 +55,7 @@ export default function CTA() {
             </motion.a>
 
             <motion.a
-              href="#contact"
-              onClick={(e) => handleScrollClick(e, '#contact')}
+              href="#/contact"
               whileHover={{ scale: 1.03, border: '1px solid rgba(255, 255, 255, 0.4)' }}
               whileTap={{ scale: 0.98 }}
               className="px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white font-semibold text-sm tracking-wide flex items-center justify-center gap-2 hover:bg-white/10 transition-colors"

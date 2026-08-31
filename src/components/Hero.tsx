@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles, BookOpen, GraduationCap, Code, Brain, ChevronRight } from 'lucide-react';
 
@@ -37,18 +36,6 @@ export default function Hero() {
     },
   });
 
-  const handleScrollClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    const targetElement = document.querySelector(href);
-    if (targetElement) {
-      const navbarHeight = 80;
-      const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navbarHeight;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
 
   return (
     <section
@@ -112,8 +99,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
           >
             <motion.a
-              href="#programs"
-              onClick={(e) => handleScrollClick(e, '#programs')}
+              href="#/programs"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
               className="relative overflow-hidden px-8 py-4 rounded-full bg-gradient-to-r from-brand-royal to-blue-700 text-white font-semibold flex items-center justify-center gap-2 shadow-lg shadow-brand-royal/30 group"
@@ -125,8 +111,7 @@ export default function Hero() {
             </motion.a>
 
             <motion.a
-              href="#contact"
-              onClick={(e) => handleScrollClick(e, '#contact')}
+              href="#/contact"
               whileHover={{ scale: 1.03, border: '1px solid rgba(212, 175, 55, 0.6)' }}
               whileTap={{ scale: 0.98 }}
               className="px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white font-semibold flex items-center justify-center gap-2 hover:bg-white/10 transition-all duration-300"

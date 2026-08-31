@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Terminal, BarChart2, Cpu, Globe2, Cloud, HeartHandshake, ArrowRight, Code, ShieldCheck, Milestone, CheckSquare, Sparkles } from 'lucide-react';
+import { Terminal, BarChart2, Cpu, Globe2, Cloud, HeartHandshake, ArrowRight, Code, ShieldCheck, Milestone, CheckSquare, Sparkles, BookOpen, Compass } from 'lucide-react';
 
 interface ProgramItem {
   id: string;
@@ -10,6 +10,7 @@ interface ProgramItem {
   longDesc: string;
   tech: string[];
   duration: string;
+  image: string;
 }
 
 const programsData: ProgramItem[] = [
@@ -21,6 +22,7 @@ const programsData: ProgramItem[] = [
     longDesc: 'Learn the core concepts of software construction. Master arrays, lists, trees, graphs, dynamic programming, and complexity analysis using Python or C++.',
     tech: ['Python', 'C++', 'Data Structures', 'Algorithms'],
     duration: '12 Weeks',
+    image: '/images/programming.jpg',
   },
   {
     id: 'data-analytics',
@@ -30,6 +32,7 @@ const programsData: ProgramItem[] = [
     longDesc: 'Turn raw unstructured data into interactive analytical reports. Master relational database querying, statistical cleaning, data modeling, and business dashboards.',
     tech: ['SQL', 'Power BI', 'Pandas', 'Excel'],
     duration: '16 Weeks',
+    image: '/images/data-analytics.jpg',
   },
   {
     id: 'ai',
@@ -39,6 +42,7 @@ const programsData: ProgramItem[] = [
     longDesc: 'Enter the cutting edge of modern technology. Build linear regressions, decision forests, convolutional neural networks, LLM integrations, and pipeline deployments.',
     tech: ['PyTorch', 'TensorFlow', 'NLP', 'Scikit-Learn'],
     duration: '24 Weeks',
+    image: '/images/ai-ml.jpg',
   },
   {
     id: 'web-dev',
@@ -48,6 +52,7 @@ const programsData: ProgramItem[] = [
     longDesc: 'Learn the complete architectural flow of web systems. Build user interfaces using React, scalable API services using Node.js/Next.js, and wire up database layers.',
     tech: ['React', 'Next.js', 'Node.js', 'PostgreSQL'],
     duration: '16 Weeks',
+    image: '/images/web-dev.jpg',
   },
   {
     id: 'cloud-devops',
@@ -57,6 +62,7 @@ const programsData: ProgramItem[] = [
     longDesc: 'Automate build environments and system scaling. Master container orchestrations, continuous integration pipelines, infrastructure-as-code, and cloud security.',
     tech: ['AWS', 'Docker', 'Kubernetes', 'CI/CD'],
     duration: '14 Weeks',
+    image: '/images/cloud-devops.jpg',
   },
   {
     id: 'career-dev',
@@ -66,6 +72,7 @@ const programsData: ProgramItem[] = [
     longDesc: 'Bridge the gap between technology and industry entry. Receive structural training on behavioral interview formulas, public pitch delivery, and executive networking.',
     tech: ['Resume Review', 'Mock Interviews', 'Soft Skills', 'LinkedIn Strategy'],
     duration: '8 Weeks',
+    image: '/images/career-dev.jpg',
   },
 ];
 
@@ -191,27 +198,119 @@ export default function Programs() {
   return (
     <div className="pt-24 pb-16 bg-brand-gray/30 min-h-screen">
       
-      {/* 1. Header */}
-      <section className="py-12 bg-white border-b border-brand-gray-dark mb-16">
-        <div className="max-w-7xl mx-auto px-6 text-center lg:text-left">
-          <span className="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-2 block">
-            Curriculum Paths
-          </span>
-          <h1 className="font-display font-bold text-3xl sm:text-4xl text-brand-navy tracking-tight mb-4">
-            Build Skills That Build Careers
-          </h1>
-          <p className="text-brand-gray-textlight text-base max-w-2xl">
-            Carefully curated specialized learning pathways crafted to transition students into industry-ready software engineers, analysts, and leaders.
-          </p>
+      {/* 1. Cinematic Programs Hero Section */}
+      <section className="relative pt-8 pb-16 bg-gradient-to-b from-brand-navy-dark via-brand-navy to-brand-navy-dark text-white overflow-hidden mb-16">
+        <div className="absolute top-1/4 -right-20 w-96 h-96 bg-brand-royal/25 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-brand-gold/15 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Hero Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-6 text-left"
+            >
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-royal/20 border border-brand-royal/40 text-brand-gold-light text-xs font-semibold uppercase tracking-wider mb-6">
+                <Sparkles className="h-3.5 w-3.5 text-brand-gold" />
+                <span>Industry-Standard Curriculum</span>
+              </div>
+
+              <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-6">
+                Tech Curriculum & <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-royal-light via-blue-400 to-brand-gold">
+                  Career Roadmaps
+                </span>
+              </h1>
+
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mb-8">
+                Explore our 6 high-demand specialized learning paths and the flagship 4-Year Industry & Placement Readiness Roadmap engineered for student success.
+              </p>
+
+              <div className="flex flex-wrap gap-4 mb-8">
+                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-gray-200">
+                  <Code className="h-4 w-4 text-brand-gold" />
+                  <span>6 Core Specializations</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-xs text-gray-200">
+                  <Milestone className="h-4 w-4 text-brand-gold" />
+                  <span>4-Year Placement Blueprint</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="#specialized-paths"
+                  className="px-7 py-3.5 rounded-full bg-gradient-to-r from-brand-royal to-blue-700 hover:from-blue-600 hover:to-brand-royal text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-royal/30 transition-all duration-300 group"
+                >
+                  <span>Specialized Tracks</span>
+                  <ArrowRight className="h-4 w-4 text-brand-gold group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a
+                  href="#roadmap-dashboard"
+                  className="px-7 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300"
+                >
+                  <span>4-Year Roadmap</span>
+                  <Compass className="h-4 w-4 text-brand-gold" />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right Hero Image Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="lg:col-span-6 relative"
+            >
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 via-brand-gold/30 to-brand-royal rounded-3xl blur-xl opacity-40 animate-pulse-subtle" />
+
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 bg-brand-navy-dark shadow-2xl group">
+                <img
+                  src="/images/programs-hero.jpg"
+                  alt="Scholars Bridge Curriculum and Learning Roadmap"
+                  className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/80 via-transparent to-transparent pointer-events-none" />
+
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-brand-navy-accent/90 border border-brand-gold/30 backdrop-blur-md flex items-center justify-between text-left">
+                  <div>
+                    <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block">
+                      End-to-End Progression
+                    </span>
+                    <h4 className="font-display font-bold text-sm text-white mt-0.5">
+                      Curriculum Engineered for Top Placements
+                    </h4>
+                  </div>
+                  <div className="p-2 rounded-xl bg-brand-gold/20 text-brand-gold">
+                    <BookOpen className="h-5 w-5" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
       {/* 2. Specialized Programs Grid */}
-      <section className="max-w-7xl mx-auto px-6 mb-24">
-        <h2 className="font-display font-bold text-2xl text-brand-navy text-left mb-8 flex items-center gap-2">
-          <Code className="h-6 w-6 text-brand-gold" />
-          Specialized Learning Paths
-        </h2>
+      <section id="specialized-paths" className="max-w-7xl mx-auto px-6 mb-24">
+        <div className="text-left mb-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-royal/10 border border-brand-royal/30 text-brand-royal text-xs font-semibold uppercase tracking-wider mb-2">
+            <Code className="h-3.5 w-3.5" />
+            <span>Targeted Industry Skills</span>
+          </div>
+          <h2 className="font-display font-bold text-2xl sm:text-3xl text-brand-navy tracking-tight">
+            Specialized Learning Paths
+          </h2>
+          <p className="text-brand-gray-textlight text-sm mt-1">
+            Choose your specialization track with deep hands-on project experience, mentorship, and career placement preparation.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programsData.map((prog) => {
             const Icon = prog.icon;
@@ -222,26 +321,37 @@ export default function Programs() {
                 key={prog.id}
                 onMouseEnter={() => setHoveredCard(prog.id)}
                 onMouseLeave={() => setHoveredCard(null)}
-                className="relative bg-white rounded-3xl border border-brand-gray-dark/60 p-8 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer min-h-[360px] flex flex-col justify-between"
+                className="relative bg-white rounded-3xl border border-brand-gray-dark/70 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer flex flex-col justify-between group"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-brand-gold/10 rounded-bl-full pointer-events-none" />
-
-                <div className="flex flex-col gap-6">
-                  <div className="flex items-center justify-between">
-                    <div className="p-3.5 rounded-2xl bg-brand-navy text-brand-gold">
-                      <Icon className="h-6 w-6" />
+                {/* Card Image Banner */}
+                <div className="relative h-48 w-full overflow-hidden bg-brand-navy-dark">
+                  <img
+                    src={prog.image}
+                    alt={prog.title}
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/95 via-brand-navy-dark/30 to-transparent" />
+                  
+                  {/* Floating icon badge and duration */}
+                  <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between z-10">
+                    <div className="p-2.5 rounded-xl bg-brand-navy/90 border border-brand-gold/40 text-brand-gold shadow-md backdrop-blur-sm">
+                      <Icon className="h-5 w-5" />
                     </div>
-                    <span className="text-xs font-bold text-brand-royal bg-brand-royal/10 px-3 py-1 rounded-full">
+                    <span className="text-xs font-bold text-white bg-brand-royal/80 border border-white/20 backdrop-blur-sm px-3 py-1 rounded-full shadow">
                       {prog.duration}
                     </span>
                   </div>
+                </div>
 
+                {/* Card Body */}
+                <div className="p-6 flex flex-col justify-between flex-grow">
                   <div>
-                    <h3 className="font-display font-bold text-xl text-brand-navy mb-2 text-left">
+                    <h3 className="font-display font-bold text-xl text-brand-navy mb-2 text-left group-hover:text-brand-royal transition-colors">
                       {prog.title}
                     </h3>
                     
-                    <div className="relative overflow-hidden min-h-[90px] text-left">
+                    <div className="relative overflow-hidden min-h-[85px] text-left">
                       <p className={`text-brand-gray-text text-sm leading-relaxed absolute inset-0 transition-opacity duration-300 ${
                         isHovered ? 'opacity-0 pointer-events-none' : 'opacity-100'
                       }`}>
@@ -254,29 +364,30 @@ export default function Programs() {
                       </p>
                     </div>
                   </div>
-                </div>
 
-                <div className="mt-6 pt-6 border-t border-brand-gray-dark flex flex-col gap-4">
-                  <div className="flex flex-wrap gap-1.5">
-                    {prog.tech.map((t) => (
-                      <span
-                        key={t}
-                        className="text-[10px] font-semibold bg-brand-gray text-brand-navy border border-brand-gray-dark/50 px-2 py-0.5 rounded"
-                      >
-                        {t}
-                      </span>
-                    ))}
+                  {/* Technologies & Action */}
+                  <div className="mt-5 pt-5 border-t border-brand-gray-dark flex flex-col gap-4">
+                    <div className="flex flex-wrap gap-1.5">
+                      {prog.tech.map((t) => (
+                        <span
+                          key={t}
+                          className="text-[10px] font-semibold bg-brand-gray text-brand-navy border border-brand-gray-dark/60 px-2.5 py-0.5 rounded-md"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <a
+                      href="#/contact"
+                      className="flex items-center justify-between text-sm font-semibold text-brand-navy group-hover:text-brand-royal mt-1 transition-colors"
+                    >
+                      <span>Request Syllabus</span>
+                      <ArrowRight className={`h-4 w-4 text-brand-gold transform transition-transform duration-300 ${
+                        isHovered ? 'translate-x-1.5' : ''
+                      }`} />
+                    </a>
                   </div>
-
-                  <a
-                    href="#/contact"
-                    className="flex items-center justify-between text-sm font-semibold text-brand-navy hover:text-brand-royal mt-2"
-                  >
-                    <span>Request Syllabus</span>
-                    <ArrowRight className={`h-4 w-4 text-brand-gold transform transition-transform duration-300 ${
-                      isHovered ? 'translate-x-1.5' : ''
-                    }`} />
-                  </a>
                 </div>
               </div>
             );
@@ -285,7 +396,7 @@ export default function Programs() {
       </section>
 
       {/* 3. 4-Year Industry & Placement Readiness Roadmap Dashboard */}
-      <section className="max-w-7xl mx-auto px-6 bg-white border border-brand-gray-dark rounded-3xl p-8 sm:p-12 shadow-md">
+      <section id="roadmap-dashboard" className="max-w-7xl mx-auto px-6 bg-white border border-brand-gray-dark rounded-3xl p-8 sm:p-12 shadow-md">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">

@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
-import { BookOpen, Code2, TrendingUp, CheckCircle, ShieldAlert, Award, GraduationCap, Users } from 'lucide-react';
-import heroImage from '../assets/about hero.png';
+import { BookOpen, Code2, TrendingUp, CheckCircle, Award, GraduationCap, Users, Sparkles, CheckCircle2 } from 'lucide-react';
 
 const pillars = [
   {
@@ -45,32 +44,94 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white">
       
-      {/* Hero Section with Image */}
-      <section className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden pt-30">
-        <motion.div
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="absolute inset-0 w-full h-full"
-        >
-          <img 
-            src={heroImage}
-            alt="Industry Ready Skills - Building the Bridge for Success"
-            className="w-full h-full object-cover object-center"
-          />
-        </motion.div>
+      {/* 1. Cinematic Hero Section with The Industry Ready Skills Bridge Graphic */}
+      <section className="relative w-full bg-gradient-to-b from-brand-navy-dark via-brand-navy to-brand-navy-dark pt-28 pb-12 overflow-hidden flex flex-col items-center justify-center text-white">
+        {/* Ambient Glows */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-royal/25 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-brand-gold/15 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 text-center">
+          
+          {/* Tagline Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8 max-w-3xl mx-auto"
+          >
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-royal/20 border border-brand-royal/40 text-brand-gold-light text-xs font-semibold uppercase tracking-wider mb-4">
+              <Sparkles className="h-3.5 w-3.5 text-brand-gold" />
+              <span>Building The Bridge Today For A Successful Tomorrow</span>
+            </div>
+            <h1 className="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+              Industry Ready Skills <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-royal-light via-blue-400 to-brand-gold">
+                Connecting College to Career
+              </span>
+            </h1>
+            <p className="text-gray-300 text-sm sm:text-base mt-3 max-w-2xl mx-auto">
+              Transforming academic foundations into corporate readiness through practical exposure, technical mastery, and professional attitude.
+            </p>
+          </motion.div>
+
+          {/* Centerpiece Image Showcase */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl bg-brand-navy-dark group max-w-6xl mx-auto"
+          >
+            <img 
+              src="/images/about-bridge-hero.jpg"
+              alt="Industry Ready Skills - Building The Bridge Today For A Successful Tomorrow: College to Industry"
+              className="w-full h-auto object-contain max-h-[85vh] mx-auto rounded-3xl"
+            />
+
+            {/* Bottom floating summary banner */}
+            <div className="p-4 sm:p-5 bg-brand-navy-accent/95 border-t border-brand-gold/30 flex flex-wrap items-center justify-between gap-4 text-left">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-brand-gold/20 text-brand-gold">
+                  <GraduationCap className="h-5 w-5" />
+                </div>
+                <div>
+                  <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block">
+                    Core Philosophy
+                  </span>
+                  <span className="text-xs sm:text-sm font-bold text-white">
+                    Learn • Practice • Adapt • Succeed
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-6 text-xs text-gray-300">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                  <span>College (Theory & Fundamentals)</span>
+                </span>
+                <span className="text-brand-gold font-bold">➔</span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle2 className="h-4 w-4 text-brand-gold" />
+                  <span>Industry (Real World Opportunities)</span>
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
       </section>
 
-      <div className="pt-24 pb-16 bg-brand-gray/30 min-h-screen">
+      {/* 2. Core About Section */}
+      <div className="py-16 bg-brand-gray/30 min-h-screen">
       
-      {/* Core About Header */}
       <section className="py-12 max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Arc Visual */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 flex justify-center"
           >
@@ -78,7 +139,7 @@ export default function About() {
               <div>
                 <span className="text-xs font-semibold text-brand-gold uppercase tracking-wider mb-2 block">Our Vision In Action</span>
                 <h4 className="font-display font-bold text-xl text-brand-navy leading-snug">The Career Bridge</h4>
-                <p className="text-brand-gray-textlight text-sm mt-2">Connecting classroom concepts to job roles.</p>
+                <p className="text-brand-gray-textlight text-sm mt-2">Connecting classroom concepts to corporate employment.</p>
               </div>
 
               <div className="my-8 flex justify-center items-center relative h-[200px]">
@@ -117,16 +178,17 @@ export default function About() {
           {/* Right Text */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 text-left"
           >
             <span className="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-2 block">
               About Scholars Bridge
             </span>
-            <h1 className="font-display font-bold text-3xl sm:text-4xl text-brand-navy tracking-tight mb-6">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl text-brand-navy tracking-tight mb-6">
               Bridging Education With Opportunity
-            </h1>
+            </h2>
             <p className="text-brand-gray-text text-base leading-relaxed mb-8">
               At Scholars Bridge, we are committed to closing the skills gap in the modern economy. By integrating academic rigor with real-world technological training, we enable students to build robust portfolios and transition smoothly into highly rewarding careers.
             </p>
@@ -140,135 +202,144 @@ export default function About() {
                       <Icon className="h-5 w-5" />
                     </div>
                     <div>
-                      <h3 className="font-display font-semibold text-base text-brand-navy text-left">{pillar.title}</h3>
-                      <p className="text-brand-gray-textlight text-xs sm:text-sm mt-1 leading-relaxed text-left">{pillar.description}</p>
+                      <h4 className="font-display font-bold text-brand-navy text-base">{pillar.title}</h4>
+                      <p className="text-brand-gray-textlight text-xs mt-1 leading-relaxed">{pillar.description}</p>
                     </div>
                   </div>
                 );
               })}
             </div>
+
           </motion.div>
 
         </div>
       </section>
 
-      {/* Academia vs Industry Matrix */}
-      <section className="py-16 bg-white border-y border-brand-gray-dark">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="font-display font-bold text-2xl sm:text-3xl text-brand-navy tracking-tight">
-              Academia ≠ Industry
-            </h2>
-            <p className="text-brand-gray-textlight mt-2 text-sm">
-              Both are vital, but they serve different goals. Our curriculum acts as the link.
-            </p>
+      {/* 3. Academia != Industry Comparison Matrix (From reference slide 4) */}
+      <section className="py-16 max-w-7xl mx-auto px-6 text-left">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-2 block">
+            The Core Paradigm
+          </span>
+          <h2 className="font-display font-bold text-2xl sm:text-3xl text-brand-navy tracking-tight">
+            Academia ≠ Industry
+          </h2>
+          <p className="text-brand-gray-textlight mt-2 text-sm">
+            Understanding the distinction between theoretical coursework and commercial corporate delivery.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          {/* Card 1: Academics */}
+          <div className="p-8 rounded-3xl bg-white border border-brand-gray-dark shadow-sm">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2.5 rounded-xl bg-blue-50 text-brand-royal">
+                <GraduationCap className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className="font-display font-bold text-xl text-brand-navy">Academics</h3>
+                <span className="text-xs text-brand-gray-textlight">Foundational Knowledge</span>
+              </div>
+            </div>
+            
+            <ul className="flex flex-col gap-3">
+              {academicItems.map((item, idx) => (
+                <li key={idx} className="flex items-center gap-3 text-sm text-brand-gray-text">
+                  <span className="w-2 h-2 rounded-full bg-brand-royal/40" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto">
-            {/* Academia Card */}
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="p-8 rounded-3xl border border-brand-gray-dark bg-brand-gray/30 flex flex-col text-left"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 rounded-lg bg-brand-navy/10 text-brand-navy">
-                  <ShieldAlert className="h-5 w-5 text-brand-royal" />
-                </div>
-                <h3 className="font-display font-bold text-xl text-brand-navy">ACADEMICS</h3>
+          {/* Card 2: Industry */}
+          <div className="p-8 rounded-3xl bg-white border-2 border-brand-gold/40 shadow-md relative overflow-hidden">
+            <div className="absolute top-0 right-0 px-4 py-1 bg-brand-gold text-brand-navy font-bold text-[10px] uppercase tracking-widest rounded-bl-xl">
+              Target Profile
+            </div>
+            
+            <div className="flex items-center gap-3 mb-6">
+              <div className="p-2.5 rounded-xl bg-brand-gold/10 text-brand-gold-dark">
+                <Award className="h-6 w-6" />
               </div>
-              <ul className="flex flex-col gap-3.5 flex-grow">
-                {academicItems.map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-sm font-medium text-brand-gray-text">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-royal" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-
-            {/* Industry Card */}
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="p-8 rounded-3xl border border-brand-gold/40 bg-[#FAF8F5] flex flex-col text-left relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-16 h-16 bg-brand-gold/15 rounded-bl-full flex items-center justify-center">
-                <Award className="h-5 w-5 text-brand-gold-dark" />
+              <div>
+                <h3 className="font-display font-bold text-xl text-brand-navy">Industry</h3>
+                <span className="text-xs text-brand-gray-textlight">Production Readiness</span>
               </div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2.5 rounded-lg bg-brand-gold/10 text-brand-gold-dark">
-                  <GraduationCap className="h-5 w-5 text-brand-gold-dark" />
-                </div>
-                <h3 className="font-display font-bold text-xl text-brand-navy">INDUSTRY</h3>
-              </div>
-              <ul className="flex flex-col gap-3.5 flex-grow">
-                {industryItems.map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3 text-sm font-medium text-brand-gray-text">
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-gold-dark" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+            </div>
+            
+            <ul className="flex flex-col gap-3">
+              {industryItems.map((item, idx) => (
+                <li key={idx} className="flex items-center gap-3 text-sm font-semibold text-brand-navy">
+                  <CheckCircle className="h-4 w-4 text-emerald-500 flex-shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="mt-12 text-center max-w-xl mx-auto px-4">
-            <p className="text-brand-navy font-display font-semibold italic text-base sm:text-lg">
-              "Both are important. But they are not the same. This roadmap builds the bridge between the two."
-            </p>
-          </div>
         </div>
       </section>
 
-      {/* The Development Ecosystem */}
-      <section className="py-16 max-w-7xl mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+      {/* 4. The Development Ecosystem (From reference slide 5) */}
+      <section className="py-16 bg-white border-t border-brand-gray-dark">
+        <div className="max-w-7xl mx-auto px-6 text-center">
           <span className="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-2 block">
-            Coordinated Alignment
+            Collaborative Model
           </span>
-          <h2 className="font-display font-bold text-2xl sm:text-3xl text-brand-navy tracking-tight">
+          <h2 className="font-display font-bold text-2xl sm:text-3xl text-brand-navy tracking-tight mb-4">
             The Development Ecosystem
           </h2>
-          <p className="text-brand-gray-textlight mt-2 text-sm">
-            Our structural tripartite integration delivers consistent placements.
+          <p className="text-brand-gray-textlight text-sm max-w-xl mx-auto mb-16">
+            College + Industry Partner + Student combined to forge an Employable Graduate.
           </p>
-        </div>
 
-        {/* 3 Circle Graphic */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 max-w-5xl mx-auto">
-          {/* Circle 1: College */}
-          <div className="w-64 h-64 rounded-full border-2 border-dashed border-brand-royal/40 bg-white shadow-lg p-6 flex flex-col items-center justify-center text-center group hover:border-brand-royal transition-colors">
-            <GraduationCap className="h-8 w-8 text-brand-royal mb-3" />
-            <h4 className="font-display font-bold text-sm text-brand-navy uppercase tracking-wider">College</h4>
-            <p className="text-[11px] text-brand-gray-textlight mt-2 max-w-[150px]">Academic Knowledge & Fundamental Principles</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Stakeholder 1: College */}
+            <div className="p-8 rounded-3xl bg-brand-gray/30 border border-brand-gray-dark flex flex-col items-center text-center">
+              <div className="w-14 h-14 rounded-2xl bg-brand-navy text-brand-gold flex items-center justify-center mb-6 shadow-md">
+                <GraduationCap className="h-7 w-7" />
+              </div>
+              <h3 className="font-display font-bold text-lg text-brand-navy mb-2">College</h3>
+              <p className="text-xs font-semibold text-brand-royal mb-4">Theory & Fundamentals</p>
+              <p className="text-brand-gray-text text-xs leading-relaxed">
+                Builds academic rigor, core curriculum foundations, and educational environments for multi-year cohorts.
+              </p>
+            </div>
+
+            {/* Stakeholder 2: Industry Partner */}
+            <div className="p-8 rounded-3xl bg-brand-gray/30 border border-brand-gray-dark flex flex-col items-center text-center">
+              <div className="w-14 h-14 rounded-2xl bg-brand-royal text-white flex items-center justify-center mb-6 shadow-md">
+                <Users className="h-7 w-7" />
+              </div>
+              <h3 className="font-display font-bold text-lg text-brand-navy mb-2">Industry Partner</h3>
+              <p className="text-xs font-semibold text-brand-royal mb-4">Exposure & Mentorship</p>
+              <p className="text-brand-gray-text text-xs leading-relaxed">
+                Guides project quality, code review standards, agile team workflows, and active recruitment benchmarks.
+              </p>
+            </div>
+
+            {/* Stakeholder 3: Student */}
+            <div className="p-8 rounded-3xl bg-brand-gray/30 border border-brand-gray-dark flex flex-col items-center text-center">
+              <div className="w-14 h-14 rounded-2xl bg-brand-gold text-brand-navy flex items-center justify-center mb-6 shadow-md">
+                <Award className="h-7 w-7" />
+              </div>
+              <h3 className="font-display font-bold text-lg text-brand-navy mb-2">Student</h3>
+              <p className="text-xs font-semibold text-brand-royal mb-4">Skills & Projects</p>
+              <p className="text-brand-gray-text text-xs leading-relaxed">
+                Applies concepts, completes continuous projects, acquires portfolio credentials, and becomes corporate ready.
+              </p>
+            </div>
+
           </div>
 
-          <div className="text-2xl font-bold text-brand-gold select-none lg:block hidden">+</div>
-
-          {/* Circle 2: Industry Partner */}
-          <div className="w-64 h-64 rounded-full border-2 border-dashed border-brand-gold/40 bg-white shadow-lg p-6 flex flex-col items-center justify-center text-center hover:border-brand-gold transition-colors">
-            <Users className="h-8 w-8 text-brand-gold mb-3" />
-            <h4 className="font-display font-bold text-sm text-brand-navy uppercase tracking-wider">Industry Partner</h4>
-            <p className="text-[11px] text-brand-gray-textlight mt-2 max-w-[150px]">Practical Exposure & Real-World Projects</p>
+          <div className="mt-12 p-6 rounded-2xl bg-brand-navy text-white max-w-xl mx-auto flex items-center justify-center gap-3">
+            <span className="font-bold text-brand-gold text-base">➔</span>
+            <span className="font-display font-bold text-base">Outcome: Employable Graduate Ready for Day 1</span>
           </div>
 
-          <div className="text-2xl font-bold text-brand-gold select-none lg:block hidden">+</div>
-
-          {/* Circle 3: Student */}
-          <div className="w-64 h-64 rounded-full border-2 border-dashed border-brand-navy/30 bg-white shadow-lg p-6 flex flex-col items-center justify-center text-center hover:border-brand-navy transition-colors">
-            <Award className="h-8 w-8 text-brand-navy mb-3" />
-            <h4 className="font-display font-bold text-sm text-brand-navy uppercase tracking-wider">Student</h4>
-            <p className="text-[11px] text-brand-gray-textlight mt-2 max-w-[150px]">Skills + Custom Projects + Soft Skill Growth</p>
-          </div>
-        </div>
-
-        {/* Outcome Box */}
-        <div className="mt-12 flex flex-col items-center">
-          <div className="px-8 py-3 rounded-full bg-brand-navy text-brand-gold font-bold text-sm tracking-widest uppercase shadow-md">
-            Employable Graduate
-          </div>
-          <p className="text-brand-gray-textlight text-xs font-semibold uppercase tracking-wider mt-4">
-            "Together, we build employable graduates."
-          </p>
         </div>
       </section>
 

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, BookOpen, GraduationCap, Code, Brain, ChevronRight } from 'lucide-react';
+import { ArrowRight, Sparkles, GraduationCap, ChevronRight, CheckCircle, TrendingUp } from 'lucide-react';
 
 export default function Hero() {
   const containerVariants = {
@@ -22,55 +22,43 @@ export default function Hero() {
     },
   };
 
-  const floatVariants = (delay: number): any => ({
-    animate: {
-      y: [0, -12, 0],
-      rotate: [0, 2, -2, 0],
-      transition: {
-        duration: 6,
-        repeat: Infinity,
-        repeatType: "reverse" as const,
-        ease: "easeInOut",
-        delay: delay,
-      },
-    },
-  });
-
-
   return (
     <section
       id="home"
       className="relative min-h-screen pt-28 pb-16 flex items-center justify-center bg-gradient-to-b from-brand-navy-dark via-brand-navy to-brand-navy-dark text-white overflow-hidden"
     >
       {/* Background glowing blobs */}
-      <div className="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-brand-royal/20 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-brand-gold/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[350px] h-[350px] bg-brand-royal/25 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-brand-gold/15 rounded-full blur-[130px] pointer-events-none" />
 
       {/* Network background grid line visual */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center relative z-10">
         
         {/* Left Side: Content */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="lg:col-span-7 flex flex-col items-start text-left"
+          className="lg:col-span-6 flex flex-col items-start text-left"
         >
           {/* Top Tagline Badge */}
           <motion.div
             variants={itemVariants}
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-royal/20 border border-brand-royal/30 text-brand-gold-light text-xs font-semibold uppercase tracking-wider mb-6"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-royal/20 border border-brand-royal/30 text-brand-gold-light text-xs font-semibold uppercase tracking-wider mb-6"
           >
             <Sparkles className="h-3.5 w-3.5 text-brand-gold" />
             <span>Guiding Students • Building Careers • Transforming Futures</span>
           </motion.div>
 
-          {/* Logo element inside hero */}
-          <motion.div variants={itemVariants} className="mb-4 flex items-center gap-2">
-            <img src="/logo.jpg" alt="Logo" className="h-8 w-auto rounded opacity-80" />
-            <span className="text-xs tracking-widest text-brand-gold font-semibold uppercase">SCHOLARS BRIDGE</span>
+          {/* Institute Brand Identity Header */}
+          <motion.div variants={itemVariants} className="mb-4 flex items-center gap-3">
+            <img src="/logo.jpg" alt="Scholars Bridge Logo" className="h-9 w-auto rounded border border-white/20 shadow" />
+            <div>
+              <span className="text-xs tracking-widest text-brand-gold font-bold uppercase block">SCHOLARS BRIDGE</span>
+              <span className="text-[10px] text-gray-300 font-medium tracking-wider uppercase">Professional EdTech Services</span>
+            </div>
           </motion.div>
 
           {/* Headline */}
@@ -88,10 +76,26 @@ export default function Hero() {
           {/* Supporting Text */}
           <motion.p
             variants={itemVariants}
-            className="text-gray-300 text-lg sm:text-xl font-normal leading-relaxed max-w-xl mb-8"
+            className="text-gray-300 text-base sm:text-lg font-normal leading-relaxed max-w-xl mb-8"
           >
-            Professional EdTech services designed to bridge the gap between education, skills, and successful careers.
+            A premier EdTech institute dedicated to bridging the critical gap between college curriculum and industry recruitment standards through structured mentorship and project excellence.
           </motion.p>
+
+          {/* Stats Chips Row */}
+          <motion.div variants={itemVariants} className="grid grid-cols-3 gap-3 mb-8 w-full max-w-lg">
+            <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-left">
+              <span className="font-display font-bold text-lg sm:text-xl text-brand-gold block">98%</span>
+              <span className="text-[11px] text-gray-300 font-medium">Placement Rate</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-left">
+              <span className="font-display font-bold text-lg sm:text-xl text-brand-royal-light block">500+</span>
+              <span className="text-[11px] text-gray-300 font-medium">Hiring Partners</span>
+            </div>
+            <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-left">
+              <span className="font-display font-bold text-lg sm:text-xl text-emerald-400 block">4.8 / 5</span>
+              <span className="text-[11px] text-gray-300 font-medium">Student Rating</span>
+            </div>
+          </motion.div>
 
           {/* Call To Actions */}
           <motion.div
@@ -122,105 +126,55 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Right Side: Creative Visual (SVG Network & Geometry) */}
-        <div className="lg:col-span-5 flex items-center justify-center relative select-none">
-          {/* Core Visual Wrapper */}
+        {/* Right Side: Cinematic Home Hero Visual with Floating Glass Badges */}
+        <div className="lg:col-span-6 relative flex items-center justify-center">
+          
+          {/* Glowing Aura Ring */}
+          <div className="absolute -inset-3 bg-gradient-to-tr from-brand-royal via-brand-gold/30 to-blue-500 rounded-3xl blur-2xl opacity-40 animate-pulse-subtle" />
+
+          {/* Main Hero Visual Card */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.85 }}
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[450px] aspect-square flex items-center justify-center"
+            transition={{ duration: 0.9, delay: 0.15 }}
+            className="relative w-full rounded-3xl overflow-hidden border border-white/20 bg-brand-navy-dark shadow-2xl group"
           >
-            {/* Spinning background circles */}
-            <div className="absolute inset-0 border border-dashed border-white/10 rounded-full animate-[spin_60s_linear_infinite]" />
-            <div className="absolute inset-[30px] border border-brand-royal/20 rounded-full animate-[spin_40s_linear_infinite_reverse]" />
-            <div className="absolute inset-[60px] border border-dashed border-brand-gold/10 rounded-full animate-[spin_20s_linear_infinite]" />
+            <img
+              src="/images/home-hero.jpg"
+              alt="Scholars Bridge - Connecting Students with Career Opportunities"
+              className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/85 via-transparent to-transparent pointer-events-none" />
 
-            {/* Glowing nodes & connections in an SVG layer */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 400 400">
-              {/* Custom linear gradients */}
-              <defs>
-                <linearGradient id="bridge-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#2563EB" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#D4AF37" stopOpacity="0.8" />
-                </linearGradient>
-                <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stopColor="#D4AF37" stopOpacity="1" />
-                  <stop offset="100%" stopColor="#D4AF37" stopOpacity="0" />
-                </radialGradient>
-              </defs>
-
-              {/* Connecting Bridge Lines */}
-              <path
-                d="M 60,300 C 130,220 270,220 340,300"
-                fill="none"
-                stroke="url(#bridge-grad)"
-                strokeWidth="3"
-                strokeDasharray="4,4"
-              />
-              <path
-                d="M 60,300 L 340,300"
-                fill="none"
-                stroke="rgba(255,255,255,0.08)"
-                strokeWidth="1"
-              />
-              
-              {/* Network Connections */}
-              <line x1="80" y1="120" x2="200" y2="80" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" />
-              <line x1="200" y1="80" x2="320" y2="120" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" />
-              <line x1="80" y1="120" x2="150" y2="210" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" />
-              <line x1="320" y1="120" x2="250" y2="210" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" />
-              <line x1="150" y1="210" x2="250" y2="210" stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" />
-              <line x1="200" y1="80" x2="200" y2="298" stroke="rgba(212,175,55,0.2)" strokeWidth="1.5" />
-            </svg>
-
-            {/* Central Graduation Cap floating geometry */}
-            <motion.div
-              variants={floatVariants(0)}
-              animate="animate"
-              className="absolute z-20 bg-brand-navy-accent/90 border border-brand-gold/30 p-6 rounded-2xl shadow-2xl flex items-center justify-center"
-            >
-              <div className="relative">
-                <div className="absolute -inset-2 bg-brand-gold/10 rounded-full blur-md" />
-                <GraduationCap className="h-16 w-16 text-brand-gold relative z-10" />
+            {/* Floating Live Badge Top Left */}
+            <div className="absolute top-4 left-4 p-3 rounded-2xl bg-brand-navy-accent/90 border border-white/15 backdrop-blur-md flex items-center gap-2.5 shadow-lg">
+              <div className="p-2 rounded-xl bg-brand-gold/20 text-brand-gold">
+                <GraduationCap className="h-4 w-4" />
               </div>
-            </motion.div>
+              <div className="text-left">
+                <span className="text-[10px] font-bold text-brand-gold uppercase tracking-wider block">Target Outcomes</span>
+                <span className="text-xs font-semibold text-white">Corporate-Ready Graduates</span>
+              </div>
+            </div>
 
-            {/* Floating Node 1: Code */}
-            <motion.div
-              variants={floatVariants(1)}
-              animate="animate"
-              className="absolute top-12 left-12 bg-brand-navy-accent border border-brand-royal/30 p-3.5 rounded-xl shadow-lg flex items-center justify-center"
-            >
-              <Code className="h-6 w-6 text-brand-royal-light" />
-            </motion.div>
+            {/* Floating Live Badge Bottom Banner */}
+            <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-brand-navy-accent/95 border border-brand-gold/30 backdrop-blur-md flex items-center justify-between text-left shadow-xl">
+              <div>
+                <div className="flex items-center gap-1.5 mb-1">
+                  <CheckCircle className="h-3.5 w-3.5 text-emerald-400" />
+                  <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block">
+                    The Career Bridge
+                  </span>
+                </div>
+                <h4 className="font-display font-bold text-sm text-white">
+                  College Theory ➔ Corporate Placement
+                </h4>
+              </div>
+              <div className="p-2.5 rounded-xl bg-brand-royal/40 border border-brand-royal/60 text-white">
+                <TrendingUp className="h-5 w-5 text-brand-gold" />
+              </div>
+            </div>
 
-            {/* Floating Node 2: Brain */}
-            <motion.div
-              variants={floatVariants(2.5)}
-              animate="animate"
-              className="absolute top-12 right-12 bg-brand-navy-accent border border-brand-royal/30 p-3.5 rounded-xl shadow-lg flex items-center justify-center"
-            >
-              <Brain className="h-6 w-6 text-pink-400" />
-            </motion.div>
-
-            {/* Floating Node 3: BookOpen */}
-            <motion.div
-              variants={floatVariants(1.8)}
-              animate="animate"
-              className="absolute bottom-28 left-6 bg-brand-navy-accent border border-brand-royal/30 p-3.5 rounded-xl shadow-lg flex items-center justify-center"
-            >
-              <BookOpen className="h-6 w-6 text-emerald-400" />
-            </motion.div>
-
-            {/* Floating Node 4: Career growth indicator */}
-            <motion.div
-              variants={floatVariants(3.2)}
-              animate="animate"
-              className="absolute bottom-28 right-6 bg-brand-navy-accent border border-brand-gold/30 p-3.5 rounded-xl shadow-lg flex items-center justify-center"
-            >
-              <Sparkles className="h-6 w-6 text-brand-gold" />
-            </motion.div>
           </motion.div>
         </div>
 

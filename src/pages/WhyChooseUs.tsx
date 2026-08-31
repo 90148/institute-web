@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Check, ClipboardList, TrendingUp } from 'lucide-react';
+import { Check, ClipboardList, TrendingUp, Sparkles, Award, ShieldCheck, ArrowRight, Star, Target } from 'lucide-react';
 
 interface FeatureItem {
   id: number;
@@ -40,23 +40,118 @@ export default function WhyChooseUs() {
   return (
     <div className="pt-24 pb-16 bg-white min-h-screen">
       
-      {/* 1. Header */}
-      <section className="py-12 bg-brand-gray/30 border-b border-brand-gray-dark mb-16">
-        <div className="max-w-7xl mx-auto px-6 text-center lg:text-left">
-          <span className="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-2 block">
-            The Scholars Bridge Advantage
-          </span>
-          <h1 className="font-display font-bold text-3xl sm:text-4xl text-brand-navy tracking-tight mb-4">
-            Why Students Choose Scholars Bridge
-          </h1>
-          <p className="text-brand-gray-textlight text-base max-w-2xl">
-            We don't just teach tech; we establish the professional and academic bridge that drives direct placement results.
-          </p>
+      {/* 1. Cinematic Why Choose Us Hero Section */}
+      <section className="relative pt-8 pb-16 bg-gradient-to-b from-brand-navy-dark via-brand-navy to-brand-navy-dark text-white overflow-hidden mb-16">
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-brand-royal/25 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-brand-gold/15 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Hero Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-6 text-left"
+            >
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-royal/20 border border-brand-royal/40 text-brand-gold-light text-xs font-semibold uppercase tracking-wider mb-6">
+                <Sparkles className="h-3.5 w-3.5 text-brand-gold" />
+                <span>The Scholars Bridge Advantage</span>
+              </div>
+
+              <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-6">
+                Bridging Academia to <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-royal-light via-blue-400 to-brand-gold">
+                  Industry Excellence
+                </span>
+              </h1>
+
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mb-8">
+                We don't just teach theory; we build your professional identity, project portfolio, and interview confidence so you graduate as a corporate-ready engineer.
+              </p>
+
+              <div className="grid grid-cols-2 gap-3 mb-8 max-w-md">
+                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-gray-200">
+                  <Award className="h-4 w-4 text-brand-gold flex-shrink-0" />
+                  <span>Graduate Portfolio Standard</span>
+                </div>
+                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-gray-200">
+                  <ShieldCheck className="h-4 w-4 text-brand-gold flex-shrink-0" />
+                  <span>Industry Readiness Scorecard</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="#features-network"
+                  className="px-7 py-3.5 rounded-full bg-gradient-to-r from-brand-royal to-blue-700 hover:from-blue-600 hover:to-brand-royal text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-royal/30 transition-all duration-300 group"
+                >
+                  <span>Explore Advantages</span>
+                  <ArrowRight className="h-4 w-4 text-brand-gold group-hover:translate-x-1 transition-transform" />
+                </a>
+                <a
+                  href="#scorecard-section"
+                  className="px-7 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300"
+                >
+                  <span>View Scorecard</span>
+                  <Target className="h-4 w-4 text-brand-gold" />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right Hero Image Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="lg:col-span-6 relative"
+            >
+              <div className="absolute -inset-2 bg-gradient-to-r from-brand-royal via-brand-gold/30 to-blue-600 rounded-3xl blur-xl opacity-40 animate-pulse-subtle" />
+
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 bg-brand-navy-dark shadow-2xl group">
+                <img
+                  src="/images/why-us-hero.jpg"
+                  alt="Scholars Bridge Placement Achievement and Industry Bridge"
+                  className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/80 via-transparent to-transparent pointer-events-none" />
+
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-brand-navy-accent/90 border border-brand-gold/30 backdrop-blur-md flex items-center justify-between text-left">
+                  <div>
+                    <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block">
+                      Placement Benchmark
+                    </span>
+                    <h4 className="font-display font-bold text-sm text-white mt-0.5">
+                      Target 4.5+ Industry Readiness Index
+                    </h4>
+                  </div>
+                  <div className="p-2 rounded-xl bg-brand-gold/20 text-brand-gold">
+                    <Star className="h-5 w-5 fill-brand-gold" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
       {/* 2. Interactive Circular Features Network */}
-      <section className="max-w-7xl mx-auto px-6 mb-24 relative overflow-hidden">
+      <section id="features-network" className="max-w-7xl mx-auto px-6 mb-24 relative overflow-hidden">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-2 block">
+            Core Pillars
+          </span>
+          <h2 className="font-display font-bold text-3xl sm:text-4xl text-brand-navy tracking-tight">
+            Why Students Choose Scholars Bridge
+          </h2>
+          <p className="text-brand-gray-textlight mt-2 text-sm sm:text-base">
+            An all-in-one ecosystem connecting learning, mentorship, portfolio creation, and direct corporate placement.
+          </p>
+        </div>
+
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           
           {/* SVG Connecting Lines - hidden on mobile */}
@@ -90,9 +185,9 @@ export default function WhyChooseUs() {
               .map((feature) => (
                 <div
                   key={feature.id}
-                  className="flex gap-4 p-5 rounded-2xl border border-brand-gray-dark bg-brand-gray/40 hover:bg-white hover:shadow-md transition-all duration-300 group text-left font-sans"
+                  className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-brand-gray-dark shadow-sm hover:shadow-md transition-all duration-300 text-left"
                 >
-                  <div className="p-2 h-fit rounded-lg bg-brand-navy/5 text-brand-navy group-hover:bg-brand-navy group-hover:text-white transition-colors">
+                  <div className="p-2 rounded-xl bg-brand-gold/10 flex-shrink-0 mt-0.5">
                     <Check className="h-5 w-5 text-brand-gold" />
                   </div>
                   <div>
@@ -103,20 +198,24 @@ export default function WhyChooseUs() {
               ))}
           </div>
 
-          {/* Center Pulsing Logo Hub */}
-          <div className="lg:col-span-4 flex items-center justify-center py-6 relative z-10">
-            <div className="relative w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center">
-              <div className="absolute inset-0 rounded-full border border-brand-gold/30 animate-[ping_3s_ease-in-out_infinite]" />
-              <div className="absolute inset-4 rounded-full border border-brand-royal/20 animate-pulse-subtle" />
-              <div className="relative w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-brand-navy border-2 border-brand-gold shadow-2xl flex flex-col items-center justify-center p-4 text-center">
-                <img
-                  src="/logo.jpg"
-                  alt="Scholars Bridge Hub"
-                  className="h-12 w-auto object-contain rounded-md mb-2"
-                />
-                <span className="text-[10px] font-display font-bold tracking-widest text-white leading-none">SCHOLARS</span>
-                <span className="text-[10px] font-display font-bold tracking-widest text-white mt-0.5">BRIDGE</span>
-                <span className="text-[8px] font-semibold text-brand-gold mt-1 uppercase tracking-wider">ADVANTAGE</span>
+          {/* Center Circular Brand Emblem Hub */}
+          <div className="lg:col-span-4 flex items-center justify-center relative z-10 py-6 lg:py-0">
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-brand-navy flex flex-col items-center justify-center p-8 text-center border-4 border-brand-gold/40 shadow-2xl overflow-hidden group">
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,175,55,0.25),transparent_70%)] pointer-events-none" />
+              
+              <div className="p-3 bg-white/10 rounded-2xl border border-white/20 mb-3 shadow-inner">
+                <img src="/logo.jpg" alt="Logo" className="h-10 w-auto rounded" />
+              </div>
+
+              <h4 className="font-display font-bold text-lg sm:text-xl text-white tracking-tight leading-tight">
+                SCHOLARS BRIDGE
+              </h4>
+              <p className="text-brand-gold text-[10px] sm:text-xs font-semibold tracking-wider uppercase mt-1">
+                Student Growth & Placement Hub
+              </p>
+              <div className="mt-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-royal/40 border border-brand-royal/60 text-[10px] text-white">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                <span>Industry Ready Standards</span>
               </div>
             </div>
           </div>
@@ -128,9 +227,9 @@ export default function WhyChooseUs() {
               .map((feature) => (
                 <div
                   key={feature.id}
-                  className="flex gap-4 p-5 rounded-2xl border border-brand-gray-dark bg-brand-gray/40 hover:bg-white hover:shadow-md transition-all duration-300 group text-left font-sans"
+                  className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-brand-gray-dark shadow-sm hover:shadow-md transition-all duration-300 text-left"
                 >
-                  <div className="p-2 h-fit rounded-lg bg-brand-navy/5 text-brand-navy group-hover:bg-brand-navy group-hover:text-white transition-colors">
+                  <div className="p-2 rounded-xl bg-brand-gold/10 flex-shrink-0 mt-0.5">
                     <Check className="h-5 w-5 text-brand-gold" />
                   </div>
                   <div>
@@ -234,16 +333,16 @@ export default function WhyChooseUs() {
               </div>
               <ul className="flex flex-col gap-3 text-xs sm:text-sm font-medium text-brand-gray-text">
                 <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-500" /> Technical Presentations
+                  <Check className="h-4 w-4 text-emerald-500" /> Technical Presentation Experience
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-500" /> Mock Interview Assessments
+                  <Check className="h-4 w-4 text-emerald-500" /> Mock Interview Feedback Reports
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-500" /> Placement Preparation Record
+                  <Check className="h-4 w-4 text-emerald-500" /> Coding Assessment Readiness (LeetCode/HackerRank)
                 </li>
                 <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-500" /> Strong Soft Skill & Communication base
+                  <Check className="h-4 w-4 text-emerald-500" /> Documented Personal Development
                 </li>
               </ul>
             </motion.div>
@@ -253,41 +352,54 @@ export default function WhyChooseUs() {
       </section>
 
       {/* 4. Industry Readiness Scorecard */}
-      <section className="py-20 max-w-4xl mx-auto px-6 text-left">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-royal/10 border border-brand-royal/30 text-brand-royal text-xs font-semibold uppercase tracking-wider mb-4">
-            <TrendingUp className="h-3.5 w-3.5" />
-            <span>Target Competencies</span>
-          </div>
-          <h2 className="font-display font-bold text-2xl sm:text-3xl text-brand-navy tracking-tight">
-            Industry Readiness Scorecard
-          </h2>
-          <p className="text-brand-gray-textlight mt-2 text-sm">
-            Our scorecard metrics and targets to make graduates completely corporate-ready (1 to 5 scale).
-          </p>
-        </div>
+      <section id="scorecard-section" className="py-20 max-w-7xl mx-auto px-6 text-left">
+        <div className="bg-brand-navy text-white rounded-3xl p-8 sm:p-12 shadow-xl border border-brand-navy-dark overflow-hidden relative">
+          
+          <div className="absolute top-0 right-0 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="bg-[#FAF8F5] border border-brand-gold/25 rounded-3xl p-8 shadow-sm flex flex-col gap-6">
-          {scorecardMetrics.map((item, idx) => (
-            <div key={idx} className="flex flex-col gap-2">
-              <div className="flex justify-between items-center text-xs sm:text-sm font-semibold text-brand-navy">
-                <span>{item.name}</span>
-                <span className="text-brand-gold-dark font-bold">{item.score.toFixed(1)} / 5.0</span>
-              </div>
-              
-              {/* Progress Bar Container */}
-              <div className="h-2.5 w-full bg-brand-gray-dark rounded-full overflow-hidden relative">
-                {/* Score Segment */}
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${(item.score / 5) * 100}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, delay: idx * 0.05 }}
-                  className="h-full bg-gradient-to-r from-brand-royal to-brand-gold rounded-full"
-                />
-              </div>
+          <div className="max-w-3xl mb-12 relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/30 text-brand-gold text-xs font-semibold uppercase tracking-wider mb-4">
+              <TrendingUp className="h-3.5 w-3.5" />
+              <span>Target Standard: Target Score ≥ 4.0 / 5.0</span>
             </div>
-          ))}
+            <h2 className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight">
+              Industry Readiness Scorecard
+            </h2>
+            <p className="text-gray-300 text-sm mt-2">
+              We benchmark every student against the 9 critical vectors that hiring managers and technical leads assess during corporate recruitment.
+            </p>
+          </div>
+
+          {/* Metrics Bars Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+            {scorecardMetrics.map((item, idx) => (
+              <div key={idx} className="p-4 rounded-2xl bg-white/5 border border-white/10 flex flex-col gap-2">
+                <div className="flex justify-between items-center text-xs font-semibold">
+                  <span className="text-gray-200">{item.name}</span>
+                  <span className="text-brand-gold font-bold">{item.score} / 5.0</span>
+                </div>
+                
+                {/* Progress track */}
+                <div className="w-full h-2 rounded-full bg-white/10 overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-gradient-to-r from-brand-royal-light to-brand-gold transition-all duration-1000"
+                    style={{ width: `${(item.score / 5.0) * 100}%` }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 relative z-10">
+            <span>Overall Employability Benchmark Target: <strong className="text-brand-gold font-bold">4.4 / 5.0 (Corporate Ready)</strong></span>
+            <a
+              href="#/contact"
+              className="px-6 py-2.5 rounded-full bg-brand-gold text-brand-navy-dark font-bold text-xs hover:bg-yellow-400 transition-colors"
+            >
+              Get Assessed Today
+            </a>
+          </div>
+
         </div>
       </section>
 

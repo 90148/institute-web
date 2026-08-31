@@ -49,8 +49,8 @@ export default function Navbar() {
         transition={{ duration: 0.4 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'glassmorphism shadow-md py-4'
-            : 'bg-transparent py-6'
+            ? 'bg-white/95 backdrop-blur-md shadow-md py-4'
+            : 'bg-white/95 backdrop-blur-md shadow-sm py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -65,7 +65,7 @@ export default function Navbar() {
               className="h-10 w-auto object-contain rounded-md"
             />
             <div className="flex flex-col text-left">
-              <span className="font-display font-bold text-lg tracking-wider text-brand-navy ">
+              <span className="font-display font-bold text-lg tracking-wider   from-brand-gold to-brand-gold/80 ">
                 SCHOLARS BRIDGE
               </span>
               <span className="text-[9px] font-semibold text-brand-gold tracking-widest uppercase">

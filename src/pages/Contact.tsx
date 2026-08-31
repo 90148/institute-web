@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, PhoneCall, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, PhoneCall, MapPin, Send, CheckCircle, AlertCircle, Sparkles, MessageSquare, Headphones, Clock, ArrowDown } from 'lucide-react';
 
 interface FormState {
   name: string;
@@ -77,36 +77,124 @@ export default function Contact() {
   return (
     <div className="pt-24 pb-16 bg-white min-h-screen">
       
-      {/* Header */}
-      <section className="py-12 bg-brand-gray/30 border-b border-brand-gray-dark mb-16">
-        <div className="max-w-7xl mx-auto px-6 text-center lg:text-left">
-          <span className="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-2 block">
-            Connect With Us
-          </span>
-          <h1 className="font-display font-bold text-3xl sm:text-4xl text-brand-navy tracking-tight mb-4">
-            Let’s Build Your Future Together
-          </h1>
-          <p className="text-brand-gray-textlight text-base max-w-2xl">
-            Have questions about our programs, course structures, or career services? Drop us an enquiry and our team will get back to you within 24 hours.
-          </p>
+      {/* 1. Cinematic Contact Hero Section */}
+      <section className="relative pt-8 pb-16 bg-gradient-to-b from-brand-navy-dark via-brand-navy to-brand-navy-dark text-white overflow-hidden mb-16">
+        <div className="absolute top-1/4 -right-20 w-96 h-96 bg-brand-royal/25 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-brand-gold/15 rounded-full blur-[100px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Hero Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-6 text-left"
+            >
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-royal/20 border border-brand-royal/40 text-brand-gold-light text-xs font-semibold uppercase tracking-wider mb-6">
+                <Sparkles className="h-3.5 w-3.5 text-brand-gold" />
+                <span>Student Support & Admissions</span>
+              </div>
+
+              <h1 className="font-display font-bold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-6">
+                Connect With <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-royal-light via-blue-400 to-brand-gold">
+                  Scholars Bridge
+                </span>
+              </h1>
+
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed max-w-xl mb-8">
+                Have questions about our technical streams, 4-year roadmap, or corporate placements? Reach out to our admissions advisors for personalized career guidance.
+              </p>
+
+              <div className="grid grid-cols-2 gap-3 mb-8 max-w-md">
+                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-gray-200">
+                  <Headphones className="h-4 w-4 text-brand-gold flex-shrink-0" />
+                  <span>1-on-1 Counseling</span>
+                </div>
+                <div className="flex items-center gap-2 p-2.5 rounded-xl bg-white/5 border border-white/10 text-xs text-gray-200">
+                  <Clock className="h-4 w-4 text-brand-gold flex-shrink-0" />
+                  <span>24-Hour Response Time</span>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="#enquiry-form"
+                  className="px-7 py-3.5 rounded-full bg-gradient-to-r from-brand-royal to-blue-700 hover:from-blue-600 hover:to-brand-royal text-white font-semibold text-sm flex items-center justify-center gap-2 shadow-lg shadow-brand-royal/30 transition-all duration-300 group"
+                >
+                  <span>Send an Enquiry</span>
+                  <ArrowDown className="h-4 w-4 text-brand-gold group-hover:translate-y-0.5 transition-transform" />
+                </a>
+                <a
+                  href="tel:+1800123456"
+                  className="px-7 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300"
+                >
+                  <PhoneCall className="h-4 w-4 text-brand-gold" />
+                  <span>+1 (800) 123-456</span>
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right Hero Image Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="lg:col-span-6 relative"
+            >
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 via-brand-gold/30 to-brand-royal rounded-3xl blur-xl opacity-40 animate-pulse-subtle" />
+
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 bg-brand-navy-dark shadow-2xl group">
+                <img
+                  src="/images/contact-hero.jpg"
+                  alt="Scholars Bridge Information Hub and Student Support"
+                  className="w-full h-auto object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-navy-dark/80 via-transparent to-transparent pointer-events-none" />
+
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-brand-navy-accent/90 border border-brand-gold/30 backdrop-blur-md flex items-center justify-between text-left">
+                  <div>
+                    <span className="text-[10px] font-bold text-brand-gold uppercase tracking-widest block">
+                      Information & Advisory Hub
+                    </span>
+                    <h4 className="font-display font-bold text-sm text-white mt-0.5">
+                      Expert Guidance for Students & Colleges
+                    </h4>
+                  </div>
+                  <div className="p-2 rounded-xl bg-brand-gold/20 text-brand-gold">
+                    <MessageSquare className="h-5 w-5" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 
-      {/* Main Grid */}
-      <section className="max-w-7xl mx-auto px-6 mb-20">
+      {/* 2. Main Contact Grid */}
+      <section id="enquiry-form" className="max-w-7xl mx-auto px-6 mb-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-stretch">
           
           {/* Left: Contact Info */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-10">
             <div className="flex flex-col gap-8 text-left">
-              <h3 className="font-display font-bold text-2xl text-brand-navy">
-                Contact Information
-              </h3>
+              <div>
+                <span className="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-1 block">
+                  Direct Inquiries
+                </span>
+                <h3 className="font-display font-bold text-2xl sm:text-3xl text-brand-navy">
+                  Contact Information
+                </h3>
+              </div>
               <p className="text-brand-gray-textlight text-sm leading-relaxed max-w-sm">
                 Feel free to visit our campus offices or connect directly via phone or email during operational business hours.
               </p>
 
-              <div className="flex flex-col gap-6 mt-4">
+              <div className="flex flex-col gap-6 mt-2">
                 
                 <div className="flex items-start gap-4">
                   <div className="p-3.5 rounded-xl bg-brand-navy/5 text-brand-navy">

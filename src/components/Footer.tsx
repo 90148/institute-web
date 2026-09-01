@@ -134,19 +134,19 @@ export default function Footer() {
           <ul className="flex flex-col gap-3 text-xs sm:text-sm text-gray-400">
             <li className="flex items-start gap-2">
               <Mail className="h-4.5 w-4.5 text-brand-gold flex-shrink-0 mt-0.5" />
-              <a href="mailto:info@scholarsbridge.com" className="hover:text-brand-gold transition-colors break-all">
-                info@scholarsbridge.com
+              <a href="mailto:info@scholarsbridge.in" className="hover:text-brand-gold transition-colors break-all">
+                info@scholarsbridge.in
               </a>
             </li>
             <li className="flex items-start gap-2">
               <Phone className="h-4.5 w-4.5 text-brand-gold flex-shrink-0 mt-0.5" />
-              <a href="tel:+1800123456" className="hover:text-brand-gold transition-colors">
-                +1 (800) 123-456
+              <a href="tel:+918688964015" className="hover:text-brand-gold transition-colors">
+                +91 8688964015
               </a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin className="h-4.5 w-4.5 text-brand-gold flex-shrink-0 mt-0.5" />
-              <span>Suite 500, EdTech Campus, Silicon Valley, CA</span>
+              <span>Scholars Bridge Professional Edtech Solutions, Akkana Vari Street, Fathekhanpet, Nellore, Andhra Pradesh - 524003</span>
             </li>
           </ul>
         </div>

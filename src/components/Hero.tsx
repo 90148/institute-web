@@ -52,7 +52,7 @@ export default function Hero() {
             <span>Guiding Students • Building Careers • Transforming Futures</span>
           </motion.div>
 
-          {/* Institute Brand Identity Header */}
+          {/* Institute Brand Identity Header 
           <motion.div variants={itemVariants} className="mb-4 flex items-center gap-3">
             <img src="/logo.jpg" alt="Scholars Bridge Logo" className="h-9 w-auto rounded border border-white/20 shadow" />
             <div>

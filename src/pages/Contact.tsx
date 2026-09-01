@@ -204,8 +204,8 @@ export default function Contact() {
                     <span className="text-xs font-semibold text-brand-gray-textlight uppercase tracking-wider block">
                       Email Address
                     </span>
-                    <a href="mailto:info@scholarsbridge.com" className="text-brand-navy hover:text-brand-royal font-semibold text-sm mt-1 transition-colors block">
-                      info@scholarsbridge.com
+                    <a href="mailto:info@scholarsbridge.in" className="text-brand-navy hover:text-brand-royal font-semibold text-sm mt-1 transition-colors block">
+                      info@scholarsbridge.in
                     </a>
                   </div>
                 </div>
@@ -218,8 +218,8 @@ export default function Contact() {
                     <span className="text-xs font-semibold text-brand-gray-textlight uppercase tracking-wider block">
                       Phone Number
                     </span>
-                    <a href="tel:+1800123456" className="text-brand-navy hover:text-brand-royal font-semibold text-sm mt-1 transition-colors block">
-                      +1 (800) 123-456
+                    <a href="tel:+918688964015" className="text-brand-navy hover:text-brand-royal font-semibold text-sm mt-1 transition-colors block">
+                      +91 8688964015
                     </a>
                   </div>
                 </div>
@@ -233,11 +233,22 @@ export default function Contact() {
                       Corporate Office
                     </span>
                     <span className="text-brand-navy font-semibold text-sm mt-1 block">
-                      Suite 500, EdTech Campus, Silicon Valley, CA
+                      Scholars Bridge Professional Edtech Solutions, Akkana Vari Street, Fathekhanpet, Nellore, Andhra Pradesh - 524003
                     </span>
                   </div>
                 </div>
 
+              </div>
+
+              <div className="overflow-hidden rounded-2xl border border-brand-gray-dark bg-brand-gray/30 shadow-sm">
+                <iframe
+                  title="Scholars Bridge Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3863.7616992281846!2d79.97338737517286!3d14.440892280966684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4cf363feb701bd%3A0x83a63e5ba354c5c6!2sScholars%20Bridge%20Professional%20Edtech%20Services!5e0!3m2!1sen!2sin!4v1788173870194!5m2!1sen!2sin"
+                  className="w-full h-64 border-0"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </div>
 

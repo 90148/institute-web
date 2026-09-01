@@ -133,7 +133,7 @@ export default function Contact() {
                   className="px-7 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm flex items-center justify-center gap-2 transition-all duration-300"
                 >
                   <PhoneCall className="h-4 w-4 text-brand-gold" />
-                  <span>+1 (800) 123-456</span>
+                  <span>+91 8688964015</span>
                 </a>
               </div>
             </motion.div>
